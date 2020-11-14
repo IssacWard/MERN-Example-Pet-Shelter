@@ -1,6 +1,6 @@
-const Pet = require('../models/Pets.model'),
+const Pet = require('../models/pets.model'),
     mongoose = require('mongoose');
-const PetsRoutes = require('../routes/Pets.routes');
+const PetsRoutes = require('../routes/pets.routes');
 
 module.exports = {
     index: (req,res) => {
