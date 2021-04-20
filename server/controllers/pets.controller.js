@@ -1,6 +1,4 @@
-const Pet = require('../models/pets.model'),
-    mongoose = require('mongoose');
-const PetsRoutes = require('../routes/pets.routes');
+const Pet = require('../models/pets.model')
 
 module.exports = {
     index: (req,res) => {
@@ -28,4 +26,4 @@ module.exports = {
             .then(data =>  res.json({results:data}))
             .catch(err =>  res.json(err.errors))
     }
-};
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Link, navigate} from '@reach/router';
+import { navigate} from '@reach/router';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default props => {
@@ -23,41 +23,29 @@ export default props => {
     }
     
     return (
-        <div class="m-4">
-            <div>
-                <div class="d-flex justify-content-between">
-                    <h1>Pet Shelter</h1>
-                    <Link to="/">Back to Home</Link>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <h3>Details about: {pet.name}</h3>
-                    <button onClick={() => Adopted()}>Adopt</button>
-                </div>
+        <div>
+            <span class="d-flex justify-content-center p-2 lead font-weight-bold">About {pet.name}:</span>
+            <div class="d-flex justify-content-center">
+                <table class="table w-50">
+                    <tbody>
+                        <tr>
+                            <th scope="col">Name:</th>
+                            <td>{pet.name}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Type:</th>
+                            <td>{pet.type}</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Description:</th>
+                            <td>{pet.description}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <table class="table w-75 table-borderless">
-                <tbody>
-                    <tr>
-                        <th scope="col">Name:</th>
-                        <td>{pet.name}</td>
-                    </tr>
-                    <tr>
-                        <th scope="col">Type:</th>
-                        <td>{pet.type}</td>
-                    </tr>
-                    <tr>
-                        <th scope="col">Description:</th>
-                        <td>{pet.description}</td>
-                    </tr>
-                    <tr>
-                        <th scope="col">Skills:</th>
-                        <td>
-                            <p>{pet.skill1}</p>
-                            <p>{pet.skill2}</p>
-                            <p>{pet.skill3}</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="d-flex justify-content-center p-2">
+                <button class="btn bg-info text-white w-50" onClick={() => Adopted()}>Adopt</button>
+            </div>
         </div>
     )
 }

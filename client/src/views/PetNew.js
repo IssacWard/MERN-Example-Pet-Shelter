@@ -1,5 +1,5 @@
 import Form from '../components/Form';
-import { Link, navigate } from '@reach/router';
+import { navigate } from '@reach/router';
 import axios from 'axios';
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,10 +8,7 @@ export default props => {
     const [pet,setPet] = useState({
         name:"",
         type:"",
-        description:"",
-        skill1:"",
-        skill2:"",
-        skill3:""
+        description:""
     });
     const [errors,setErrors] = useState({
         name:"",
@@ -39,19 +36,15 @@ export default props => {
             })
     }
     return (
-        <div class="m-4">
-            <div>
-                <div class="d-flex justify-content-between">
-                    <h1>Pet Shelter</h1>
-                    <Link to="/">Back to Home</Link>
-                </div>
-                <h3>Know a pet needing a home?</h3>
+        <div>
+            <span class="d-flex justify-content-center p-2 lead font-weight-bold">Know a pet needing a home?</span>
+            <div class="d-flex justify-content-center">
+                <Form 
+                    pet={pet} 
+                    handleInputChange={handleInputChange}
+                    handleSubmit={handleSubmit}
+                    errors={errors}/>
             </div>
-            <Form 
-                pet={pet} 
-                handleInputChange={handleInputChange}
-                handleSubmit={handleSubmit}
-                errors={errors}/>
         </div>
     )
 }
